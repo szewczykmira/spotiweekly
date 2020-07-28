@@ -1,6 +1,8 @@
 from flask import Flask
 
-from .views import weekly_views
+from .config import Config
+from .views import weekly_bp
 
 app = Flask(__name__)
-app.register_blueprint(weekly_views)
+app.config.from_object(Config)
+app.register_blueprint(weekly_bp)

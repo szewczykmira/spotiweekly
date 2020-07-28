@@ -1,9 +1,13 @@
 from flask import Blueprint, render_template
 
-weekly_views = Blueprint("weekly", __name__)
+weekly_bp = Blueprint("weekly", __name__)
 
 
-@weekly_views.route("/")
+@weekly_bp.route("/")
 def index():
-    ctx = {"value": "Miguel"}
-    return render_template("index.html", **ctx)
+    return render_template("index.html")
+
+
+@weekly_bp.route("/authenticate")
+def authenticate():
+    return "Authenticate"
