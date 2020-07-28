@@ -1,9 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask
+
+from .views import weekly_views
 
 app = Flask(__name__)
-
-
-@app.route("/")
-def index():
-    ctx = {"value": "Miguel"}
-    return render_template("index.html", **ctx)
+app.register_blueprint(weekly_views)
