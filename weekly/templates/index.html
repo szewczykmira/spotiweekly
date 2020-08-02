@@ -1,5 +1,9 @@
-{% extends "base.html" %} {% block title %} Index page {% endblock %}
+{% extends "base.html" %} {% block title %} Keep your music save {% endblock %}
 {% block content %}
-<h1>This is index page</h1>
-{{ value }} 
+<div class="uk-flex uk-flex-center">
+    <a class="uk-button uk-button-default" href="{{ url_for('weekly.authenticate') }}">
+        Authenticate 
+        <i class="fab fa-spotify"></i>
+    </a>
+</div>
 {% endblock %}
