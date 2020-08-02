@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, current_app, redirect, render_template, request
+from spotify.client import SpotifyAuthenticationClient
 
 weekly_bp = Blueprint("weekly", __name__)
 
@@ -10,4 +11,11 @@ def index():
 
 @weekly_bp.route("/authenticate")
 def authenticate():
-    return "Authenticate"
+    client = SpotifyAuthenticationClient(current_app.config)
+    return redirect(client.auth_url)
+
+
+@weekly_bp.route("/callback")
+def callback():
+    print(request.data)
+    return request.data
