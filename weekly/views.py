@@ -1,5 +1,5 @@
 from flask import Blueprint, current_app, redirect, render_template, request
-from spotify.client import SpotifyAuthenticationClient
+from spotify.api import get_auth_url
 
 weekly_bp = Blueprint("weekly", __name__)
 
@@ -11,8 +11,9 @@ def index():
 
 @weekly_bp.route("/authenticate")
 def authenticate():
-    client = SpotifyAuthenticationClient(current_app.config)
-    return redirect(client.auth_url)
+    auth_url = get_auth_url(current_app.config)
+    print(auth_url)
+    return redirect(auth_url)
 
 
 @weekly_bp.route("/callback")
