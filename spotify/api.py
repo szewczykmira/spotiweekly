@@ -14,7 +14,7 @@ def get_auth_url(config: "Config"):
     params_data = {
         "client_id": config["SPOTIFY_CLIENT_ID"],
         "response_type": "code",
-        "redirect_uri": urljoin(config["HOST"], callback_url),
+        "redirect_uri": urljoin(config["APPLICATION_ROOT"], callback_url),
         "scope": " ".join(SCOPE),
     }
     params = urlencode(params_data)
