@@ -12,11 +12,9 @@ def index():
 @weekly_bp.route("/authenticate")
 def authenticate():
     auth_url = get_auth_url(current_app.config)
-    print(auth_url)
     return redirect(auth_url)
 
 
 @weekly_bp.route("/callback")
 def callback():
-    print(request.data)
     return request.data

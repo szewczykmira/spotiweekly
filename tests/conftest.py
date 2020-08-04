@@ -1,3 +1,8 @@
-def pytest_sessionfinish(session, exitstatus):
-    if exitstatus == 5:
-        session.exitstatus = 0
+import pytest
+from weekly.app import create_app
+
+
+@pytest.fixture
+def app():
+    app = create_app()
+    return app
