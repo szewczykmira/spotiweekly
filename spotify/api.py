@@ -9,7 +9,10 @@ if TYPE_CHECKING:
     from .config import Config
 
 
-def get_auth_url(config: "Config"):
+def get_auth_url(config: "Config") -> str:
+    """ This will work properly only in request context.
+    Read more on `url_for` outside of context and you will know why.
+    """
     callback_url = url_for("weekly.callback")
     params_data = {
         "client_id": config["SPOTIFY_CLIENT_ID"],
