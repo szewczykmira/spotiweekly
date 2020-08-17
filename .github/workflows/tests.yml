@@ -32,4 +32,4 @@ jobs:
         poetry install
     
     - name: Run tests
-      run: pytest
+      run: make test

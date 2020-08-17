@@ -8,5 +8,8 @@ run:
 install:
 	@poetry install
 
+test:
+	@pytest
+
 
 .DEFAULT_GOAL = run
