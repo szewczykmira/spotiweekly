@@ -1,0 +1,2 @@
+class CodeNotProvided(KeyError):
+    pass

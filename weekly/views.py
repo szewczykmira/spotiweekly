@@ -1,5 +1,7 @@
-from flask import Blueprint, current_app, redirect, render_template, request
+from flask import Blueprint, current_app, redirect, render_template, request, session
 from spotify.api import get_auth_url
+from spotify.exceptions import CodeNotProvided
+from spotify.utils import retrieve_code
 
 weekly_bp = Blueprint("weekly", __name__)
 
@@ -17,4 +19,7 @@ def authenticate():
 
 @weekly_bp.route("/callback")
 def callback():
-    return request.data
+    try:
+        return retrieve_code(request.args)
+    except CodeNotProvided:
+        return "Something went wrong"
