@@ -1,7 +1,5 @@
 from urllib.parse import urlencode
 
-import pytest
-from flask import url_for
 from spotify.api import get_auth_url
 from spotify.consts import SCOPE, SPOTIFY_AUTHORIZATION_URL
 
