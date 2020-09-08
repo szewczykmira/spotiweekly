@@ -1,3 +1,6 @@
+bandit:
+	@bandit .
+
 lint:
 	@black . && flake8
 
