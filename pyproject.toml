@@ -23,7 +23,7 @@ pytest-cov = "^2.8.1"
 flake8 = "^3.8.3"
 
 [tool.black]
-line-length = 100
+line-length = 90
 target-version = ['py38']
 
 [tool.isort]
