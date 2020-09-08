@@ -1,5 +1,5 @@
 lint:
-	@black .
+	@black . && flake8
 
 run:
 	@flask run
