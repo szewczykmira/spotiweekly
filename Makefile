@@ -1,5 +1,8 @@
+bandit:
+	@bandit .
+
 lint:
-	@black .
+	@black . && flake8
 
 run:
 	@flask run
@@ -7,6 +10,9 @@ run:
 
 install:
 	@poetry install
+
+test:
+	@pytest
 
 
 .DEFAULT_GOAL = run

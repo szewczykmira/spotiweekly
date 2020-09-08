@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, List
+from typing import TYPE_CHECKING
 from urllib.parse import urlencode, urljoin
 
 from flask import url_for

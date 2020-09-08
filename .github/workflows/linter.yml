@@ -31,5 +31,5 @@ jobs:
         source $HOME/.poetry/env
         poetry install
     
-    - name: Run black
-      run: black --check .
+    - name: Run linter
+      run: make lint
