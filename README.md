@@ -28,10 +28,15 @@ pre-commit install
 
 ## Running tests
 ```sh
-pytest
+make test
 ```
 
 - running test with checking test coverage
 ```sh
 pytest --cov={repository_name} tests/
+```
+
+## Running application
+```sh
+make run 
 ```
