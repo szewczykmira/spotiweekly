@@ -1,24 +1,19 @@
-from typing import TYPE_CHECKING
-from urllib.parse import urlencode, urljoin
+from dataclasses import dataclass, field
+from urllib.parse import urljoin
 
-from flask import url_for
-
-from .consts import SCOPE, SPOTIFY_AUTHORIZATION_URL
-
-if TYPE_CHECKING:
-    from .config import Config
+import requests
 
 
-def get_auth_url(config: "Config") -> str:
-    """ This will work properly only in request context.
-    Read more on `url_for` outside of context and you will know why.
-    """
-    callback_url = url_for("weekly.callback")
-    params_data = {
-        "client_id": config["SPOTIFY_CLIENT_ID"],
-        "response_type": "code",
-        "redirect_uri": urljoin(config["APPLICATION_ROOT"], callback_url),
-        "scope": " ".join(SCOPE),
-    }
-    params = urlencode(params_data)
-    return "?".join([SPOTIFY_AUTHORIZATION_URL, params])
+@dataclass
+class SpotifyClient:
+    token: str
+    API_URL: str = field(init=False, default="https://api.spotify.com/v1/")
+
+    def send(self, url: str):
+        url = urljoin(self.API_URL, url)
+
+        headers = {"Authorization": f"Bearer {self.token}"}
+        return requests.get(url, headers=headers)
+
+    def me(self):
+        return self.send("me")

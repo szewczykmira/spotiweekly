@@ -1,9 +1,11 @@
 <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+    {% if display_name %}
     <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
-            <li class="uk-active"><a href="#">Active</a></li>
+            <li class="uk-active"><a href="#">{{ display_name }}</a></li>
         </ul>
     </div>
+    {% endif %}
     <div class="uk-navbar-center">
         <span class="uk-navbar-item uk-logo color-green">Spotiweekly</span>
     </div>
