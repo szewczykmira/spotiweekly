@@ -7,6 +7,12 @@ class Config:
     ROOT = os.environ.get("ROOT")
     SECRET_KEY = os.environ.get("SECRET_KEY", "1233414")
 
+    def __getitem__(self, key):
+        """ Helper method for running code from REPL.
+        Even if we are outside of flask app we can still access fields as Config()[key]
+        """
+        return getattr(self, key)
+
 
 class TestConfig(Config):
     SPOTIFY_CLIENT_ID = "12345"
