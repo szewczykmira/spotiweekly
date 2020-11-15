@@ -22,14 +22,14 @@ def index():
     session_token = session.get(SPOTIFY_COOKIE_NAME)
     if session_token is not None:
         client = SpotifyClient(session_token)
-        return render_template("index.html", **client.me().json())
-    return render_template("index.html")
+        # return render_template("index.html", **client.me().json())
 
 
 @weekly_bp.route("/authenticate")
 def authenticate():
     client = AuthorizationClient(current_app.config)
-    return redirect(client.authorization_url())
+    url = client.authorization_url()
+    return redirect(url)
 
 
 @weekly_bp.route("/callback")
@@ -37,7 +37,8 @@ def callback():
     try:
         code = retrieve_code(request.args)
         client = AuthorizationClient(current_app.config)
-        response = make_response(redirect(url_for("weekly.index")))
+        response = make_response(redirect(current_app.config["FRONTEND_URL"]))
+        # TODO: return access token to frontend!
         session[SPOTIFY_COOKIE_NAME] = client.get_access_token(code)
         response.headers["Same-Site"] = None
         return response

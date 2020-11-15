@@ -1,16 +1,21 @@
 import React from "react";
 import { faSpotify } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SPOTIFY_CLIENT_ID} from '../consts';
+import { BACKEND_URL } from "../consts";
 
 class Authentication extends React.Component {
   handleClick = () => {
-    console.log(SPOTIFY_CLIENT_ID);
+    window.location.href = BACKEND_URL + "/authenticate";
   };
   render = () => {
     return (
       <div className="uk-flex uk-flex-center">
-        <button className="uk-button uk-button-default" onClick={this.handleClick}>Authenticate <FontAwesomeIcon icon={faSpotify} /></button>
+        <button
+          className="uk-button uk-button-default"
+          onClick={this.handleClick}
+        >
+          Authenticate <FontAwesomeIcon icon={faSpotify} />
+        </button>
       </div>
     );
   };
