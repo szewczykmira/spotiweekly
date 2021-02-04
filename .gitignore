@@ -1,3 +1,10 @@
 .mypy_cache/
 __pycache__/
+.pytest_cache/
 spotiweekly/.env
+
+# dependencies
+/node_modules
+
+# production
+/build
