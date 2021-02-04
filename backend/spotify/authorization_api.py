@@ -43,5 +43,4 @@ class AuthorizationClient:
             auth=(self.config["SPOTIFY_CLIENT_ID"], self.config["SPOTIFY_CLIENT_SECRET"]),
             data=data,
         )
-        print(response.json())
         return response.json()["access_token"]
