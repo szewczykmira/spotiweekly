@@ -1,6 +1,6 @@
 import pytest
-from weekly.app import create_app
-from weekly.config import TestConfig
+from backend.weekly.app import create_app
+from backend.weekly.config import TestConfig
 
 
 @pytest.fixture

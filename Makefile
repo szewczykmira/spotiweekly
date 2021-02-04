@@ -9,7 +9,11 @@ run:
 
 
 install:
-	@poetry install
+	@poetry install && npm install
+
+
+update:
+	@poetry update && npm update
 
 test:
 	@pytest

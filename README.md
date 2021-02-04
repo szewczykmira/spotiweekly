@@ -18,7 +18,7 @@ mkvirtualenv -p python3.8 spotiweekly
 3. **[Optional]** you can update project's name in `pyproject.toml`
 4. Install dependencies
 ```sh
-poetry install
+make install
 ```
 5. Install pre-commit hooks
 ```sh
