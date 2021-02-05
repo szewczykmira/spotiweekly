@@ -4,7 +4,11 @@ name: Linter
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
-on: [pull_request]
+on: 
+  pull_request:
+  push:
+    branches:
+      - master
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -23,12 +27,13 @@ jobs:
       with:
         python-version: 3.8
     
-    - name: Install poetry
-      uses: dschep/install-poetry-action@v1.3
+    - name: Poetry Install
+      uses: knowsuchagency/poetry-install@v2
+      env:
+        POETRY_VIRTUALENVS_CREATE: false
   
     - name: Get started poetry
       run: |
-        source $HOME/.poetry/env
         poetry install
     
     - name: Run linter
