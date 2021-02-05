@@ -2,7 +2,7 @@ from backend.spotify.authorization_api import AuthorizationClient
 from backend.spotify.exceptions import CodeNotProvided
 from backend.spotify.utils import retrieve_code
 from backend.weekly.helpers import get_callback_url
-from flask import Blueprint, current_app, redirect, request, session, url_for
+from flask import Blueprint, current_app, redirect, request
 
 weekly_bp = Blueprint("weekly", __name__)
 
