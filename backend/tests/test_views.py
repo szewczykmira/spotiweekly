@@ -2,7 +2,6 @@ from unittest.mock import Mock
 
 from backend.spotify.exceptions import CodeNotProvided
 from backend.weekly import views
-from flask import url_for
 
 
 def test_authenticate(client):
