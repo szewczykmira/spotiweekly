@@ -1,6 +1,6 @@
 import pytest
-from backend.spotify.exceptions import CodeNotProvided
-from backend.spotify.utils import retrieve_code
+from spotiweekly.spotify.exceptions import CodeNotProvided
+from spotiweekly.spotify.utils import retrieve_code
 
 
 def test_retrieve_code_raises_error_when_no_code():

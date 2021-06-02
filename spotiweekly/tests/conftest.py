@@ -1,6 +1,6 @@
 import pytest
-from backend.weekly.app import create_app
-from backend.weekly.config import TestConfig
+from spotiweekly.weekly.app import create_app
+from spotiweekly.weekly.config import TestConfig
 
 
 @pytest.fixture

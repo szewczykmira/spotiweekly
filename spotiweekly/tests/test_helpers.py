@@ -1,5 +1,5 @@
 import pytest
-from backend.weekly.helpers import get_callback_url
+from spotiweekly.weekly.helpers import get_callback_url
 
 
 @pytest.mark.parametrize(
