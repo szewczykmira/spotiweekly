@@ -10,10 +10,10 @@
 ```sh
 git clone git@github.com:szewczykmira/spotiweekly.git
 ```
-2. Enter the repository and create virtualenv with python 3.8
+2. Enter the repository and create virtualenv with python 3.9
 ```sh
 cd spotiweekly
-mkvirtualenv -p python3.8 spotiweekly
+mkvirtualenv -p python3.9 spotiweekly
 ```
 3. **[Optional]** you can update project's name in `pyproject.toml`
 4. Install dependencies
