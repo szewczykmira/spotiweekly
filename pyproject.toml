@@ -2,7 +2,7 @@
 name = "spotiweekly"
 version = "0.1.0"
 description = ""
-authors = ["szewczykmira@gmail.com"]
+authors = ["Mira Szewczyk <szewczyk.mira@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
