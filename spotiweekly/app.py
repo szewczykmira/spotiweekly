@@ -2,7 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 
 from .config import Config
-from .views import weekly_bp
+from .weekly.views import weekly_bp
 
 
 def create_app(config=Config):

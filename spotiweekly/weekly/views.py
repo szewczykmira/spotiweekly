@@ -1,10 +1,15 @@
-from flask import Blueprint, current_app, redirect, request
+from flask import Blueprint, current_app, redirect, render_template, request
 from spotiweekly.spotify.authorization_api import AuthorizationClient
 from spotiweekly.spotify.exceptions import CodeNotProvided
 from spotiweekly.spotify.utils import retrieve_code
 from spotiweekly.weekly.helpers import get_callback_url
 
 weekly_bp = Blueprint("weekly", __name__)
+
+
+@weekly_bp.route("/")
+def index():
+    return render_template("index.html")
 
 
 @weekly_bp.route("/authenticate")
