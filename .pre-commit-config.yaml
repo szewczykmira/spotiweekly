@@ -15,7 +15,7 @@ repos:
       - id: python-check-blanket-noqa
       - id: python-use-type-annotations
   - repo: https://github.com/pre-commit/mirrors-mypy.git
-    rev: v0.770
+    rev: v0.812
     hooks:
       - id: mypy
 
