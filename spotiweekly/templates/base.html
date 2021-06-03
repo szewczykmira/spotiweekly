@@ -3,15 +3,19 @@
 
 <head>
     <title>Spotiweekly - {% block title %}{% endblock %}</title>
-    <!-- UIkit CSS -->
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/css/uikit.min.css" />
     <link rel="stylesheet" href="{{ url_for('static', filename = 'base.css') }}" />
-    
-    
-    <!-- UIkit JS -->
+
+    <!-- Scripts -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
     <script src="https://kit.fontawesome.com/a2e3cfc49e.js" crossorigin="anonymous"></script>
+
+    {% block script %}
+    {% endblock %}
 </head>
 
 <body>
