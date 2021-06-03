@@ -10,13 +10,15 @@ from flask import (
 from spotiweekly.spotify.authorization_api import AuthorizationClient
 from spotiweekly.spotify.exceptions import CodeNotProvided
 from spotiweekly.spotify.utils import retrieve_code
+from spotiweekly.weekly.decorators import is_logged_in
 
 weekly_bp = Blueprint("weekly", __name__)
 
 
 @weekly_bp.route("/")
-def index():
-    return render_template("index.html")
+@is_logged_in
+def index(ctx):
+    return render_template("index.html", **ctx)
 
 
 @weekly_bp.route("/authenticate")
