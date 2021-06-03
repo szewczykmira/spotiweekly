@@ -4,9 +4,9 @@ import os
 class Config:
     SPOTIFY_CLIENT_ID = os.environ.get("SPOTIFY_CLIENT_ID")
     SPOTIFY_CLIENT_SECRET = os.environ.get("SPOTIFY_CLIENT_SECRET")
+    COOKIE_NAME = os.environ.get("SPOTIFY_COOKIE_NAME", "SPOTICOOKIE")
     ROOT = os.environ.get("ROOT", "http://localhost:5000")
     SECRET_KEY = os.environ.get("SECRET_KEY", "1233414")
-    FRONTEND_URL = os.environ.get("FRONTEND_URL", "http://localhost:3000")
 
     def __getitem__(self, key):
         """ Helper method for running code from REPL.
