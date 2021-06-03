@@ -5,7 +5,6 @@ import Authentication from './components/Authentication.jsx'
 function App() {
   return (
     <div className="App">
-      <Navbar value="kek"/>
       <Authentication />
     </div>
   );
