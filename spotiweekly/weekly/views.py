@@ -32,6 +32,7 @@ def callback():
         code = retrieve_code(request.args)
         client = AuthorizationClient(current_app.config)
         token = client.get_access_token(code)
+        print(token)
         session[current_app.config["COOKIE_NAME"]] = token
         return redirect(url_for("weekly.index"))
     except CodeNotProvided:
