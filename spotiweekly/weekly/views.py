@@ -36,3 +36,9 @@ def callback():
         return redirect(url_for("weekly.index"))
     except CodeNotProvided:
         return "Something went wrong"
+
+
+@weekly_bp.route("/logout")
+def logout():
+    del session[current_app.config["COOKIE_NAME"]]
+    return redirect(url_for("weekly.index"))
