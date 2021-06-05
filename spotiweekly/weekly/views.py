@@ -43,5 +43,5 @@ def callback():
 
 @weekly_bp.route("/logout")
 def logout():
-    del session[current_app.config["COOKIE_NAME"]]
+    session.clear()
     return redirect(url_for("weekly.index"))
