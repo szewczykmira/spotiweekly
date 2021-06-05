@@ -1,20 +1,6 @@
 class App extends React.Component {
-  renderNotAuthenticated() {
-    return <Intro />
-  }
-  renderAuthenticated() {
-    console.log(this.props.playlistsUrl)
-    return <div>
-      <Greeting greeting={this.props.isAuthenticated} />
-    </div>
-  }
   render() {
-    if (!this.props.isAuthenticated) {
-      return this.renderNotAuthenticated()
-    }
-    else {
-      return this.renderAuthenticated();
-    }
+    return (!this.props.isAuthenticated) ? <Intro /> : <Playlists url={this.props.playlistsUrl} />
   }
 }
 
@@ -30,10 +16,17 @@ class Intro extends React.Component {
   }
 }
 
-class Greeting extends React.Component {
+class Playlists extends React.Component {
   render() {
-    return <h1>{String(this.props.greeting)}</h1>;
+    console.log(this.props.url)
+
+    return <div>
+      <h2 className="uk-text-center">Your Playlists</h2>
+    </div>
   }
 }
 
-ReactDOM.render(<App isAuthenticated={isAuthenticated} playlistsUrl={allPlaylists} />, document.getElementById("root"))
+ReactDOM.render(
+  <App isAuthenticated={isAuthenticated} playlistsUrl={allPlaylists} />,
+  document.getElementById("root")
+)
