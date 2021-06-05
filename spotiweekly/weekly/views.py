@@ -1,12 +1,14 @@
 from flask import (
     Blueprint,
     current_app,
+    jsonify,
     redirect,
     render_template,
     request,
     session,
     url_for,
 )
+from spotiweekly.spotify.api import SpotifyClient
 from spotiweekly.spotify.authorization_api import AuthorizationClient
 from spotiweekly.spotify.exceptions import CodeNotProvided
 from spotiweekly.spotify.utils import retrieve_code
@@ -19,6 +21,16 @@ weekly_bp = Blueprint("weekly", __name__)
 @is_logged_in
 def index(ctx):
     return render_template("index.html", **ctx)
+
+
+@weekly_bp.route("/playlists")
+@is_logged_in
+def playlists(ctx):
+    if ctx["is_authenticated"]:
+        token = session[current_app.config["COOKIE_NAME"]]
+        client = SpotifyClient(token)
+        return jsonify(client.all_playlists())
+    return 200, jsonify({"items": [], "previous": "", "next": ""})
 
 
 @weekly_bp.route("/authenticate")

@@ -28,3 +28,6 @@ class SpotifyClient:
 
     def me(self):
         return self.get("me")
+
+    def all_playlists(self) -> Tuple[list, str, str]:
+        return self.get("me/playlists", limit=50)
