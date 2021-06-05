@@ -36,7 +36,8 @@ def callback():
         token = client.get_access_token(code)
         session[current_app.config["COOKIE_NAME"]] = token
         return redirect(url_for("weekly.index"))
-    except CodeNotProvided:
+    except CodeNotProvided as e:
+        current_app.logger.exception(str(e))
         return "Something went wrong"
 
 
