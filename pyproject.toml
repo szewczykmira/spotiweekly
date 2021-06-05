@@ -13,6 +13,7 @@ pytest-flask = "^1.0.0"
 flask-session = "^0.3.2"
 requests = "^2.24.0"
 Flask-Cors = "^3.0.9"
+flask-shell-ipython = "^0.4.1"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
