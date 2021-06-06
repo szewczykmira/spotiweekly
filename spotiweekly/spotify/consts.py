@@ -1,6 +1,3 @@
-SPOTIFY_COOKIE_NAME = "auth_code"
-
-
 SCOPE = [
     "user-read-email",
     "playlist-modify-public",

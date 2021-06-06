@@ -1,3 +1,11 @@
 {% extends "base.html" %}
 
 {% block title %}App{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+    var isAuthenticated = JSON.parse({{ is_authenticated| tojson }});
+    var allPlaylists = "{{ url_for('weekly.playlists', _external=True) }}"
+</script>
+<script src="{{ url_for('static', filename = 'scripts/index.js') }}" type="text/babel"></script>
+{% endblock %}
