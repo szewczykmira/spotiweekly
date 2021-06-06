@@ -26,10 +26,12 @@ def index(ctx):
 @weekly_bp.route("/playlists")
 @is_logged_in
 def playlists(ctx):
+    offset = request.args.get("offset")
     if ctx["is_authenticated"]:
         token = session[current_app.config["COOKIE_NAME"]]
         client = SpotifyClient(token)
-        return jsonify(client.all_playlists())
+        response = client.all_playlists(offset)
+        return jsonify(response)
     return 200, jsonify({"items": [], "previous": "", "next": ""})
 
 
