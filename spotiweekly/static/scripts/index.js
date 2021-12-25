@@ -9,8 +9,7 @@ class Intro extends React.Component {
     return <div className="uk-margin-top uk-text-center">
       <h1 className="uk-text-success ">Spotiweekly</h1>
       <p>
-        Are you tired of creating new playlists from your discovery weekly? First create new playlists and after that passing songs one by one? Say no more!
-        Spotiweekly is here to help you!
+        Download spotify playlists and convert them into the xml readable by Apple Muisc
       </p>
     </div>
   }
