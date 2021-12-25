@@ -1,5 +1,5 @@
 ## Requirements:
-1. Project is running with python 3.8+
+1. Project is running with python 3.9+
 2. [Poetry](https://python-poetry.org/docs/) is required to work with dependencies
 
 

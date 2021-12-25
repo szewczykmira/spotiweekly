@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.5.0
+    rev: v4.1.0
     hooks:
       - id: check-added-large-files
       - id: check-ast
@@ -10,25 +10,25 @@ repos:
       - id: detect-private-key
       - id: end-of-file-fixer
   - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.5.1
+    rev: v1.9.0
     hooks:
       - id: python-check-blanket-noqa
       - id: python-use-type-annotations
   - repo: https://github.com/pre-commit/mirrors-mypy.git
-    rev: v0.812
+    rev: v0.930
     hooks:
       - id: mypy
 
   - repo: https://github.com/psf/black.git
-    rev: 19.10b0
+    rev: 21.12b0
     hooks:
       - id: black
   - repo: https://github.com/timothycrosley/isort.git
-    rev: 4.3.21
+    rev: 5.10.1
     hooks:
       - id: isort
         additional_dependencies: ["toml"]
   - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.8.4
+    rev: 4.0.1
     hooks:
     - id: flake8
