@@ -26,16 +26,9 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
-    
-    - name: Poetry Install
-      uses: snok/install-poetry@v1
-  
-    - name: Get started poetry
-      run: |
-        poetry install
 
-    - name: T1
-      run: pip install flake8 & flake8 .
+    - name: Get started poetry
+      run: pip install -r requirements.txt & pip install black & pip install flake8
     
     - name: Run linter
       run: make lint

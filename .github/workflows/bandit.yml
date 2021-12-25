@@ -27,15 +27,8 @@ jobs:
       with:
         python-version: 3.9
     
-    - name: Poetry Install
-      uses: snok/install-poetry@v1
-  
     - name: Get started poetry
-      run: |
-        poetry install
-
-    - name: Test results
-      run: poetry show
+      run: pip install -r requirements.txt & pip install bandit
     
     - name: Run bandit
       run: make bandit
