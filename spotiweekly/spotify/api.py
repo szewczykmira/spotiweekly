@@ -31,3 +31,10 @@ class SpotifyClient:
 
     def all_playlists(self, offset=0) -> Tuple[list, str, str]:
         return self.get("me/playlists", limit=50, offset=offset)
+
+    def playlist_tracks(self, playlist_id: str):
+        # TODO: select fields, think about pagination
+        return self.get(f"playlists/{playlist_id}/tracks")
+
+    def playlist(self, playlist_id: str):
+        return self.get(f"/v1/playlists/{playlist_id}")

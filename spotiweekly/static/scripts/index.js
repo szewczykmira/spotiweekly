@@ -17,6 +17,7 @@ class Intro extends React.Component {
 
 class Playlist extends React.Component {
   render() {
+    console.log(this.props.obj.id);
     return <tr>
       <td><img className="uk-preserve-width uk-border-circle" src={this.props.imageUrl} width="40" alt="" /></td>
       <td className="uk-table-link"><a className="uk-link-reset" href="">{this.props.name}</a></td>
@@ -57,7 +58,7 @@ class Playlists extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {this.state.playlists.map((plist, index) => < Playlist key={plist.id} name={plist.name} imageUrl={plist.images[0].url} />)}
+          {this.state.playlists.map((plist, index) => < Playlist obj={plist} key={plist.id} name={plist.name} imageUrl={plist.images[0].url} />)}
         </tbody>
       </table>
       <ul className="uk-pagination">

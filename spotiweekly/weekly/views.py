@@ -8,6 +8,7 @@ from flask import (
     session,
     url_for,
 )
+
 from spotiweekly.spotify.api import SpotifyClient
 from spotiweekly.spotify.authorization_api import AuthorizationClient
 from spotiweekly.spotify.exceptions import CodeNotProvided
@@ -59,3 +60,13 @@ def callback():
 def logout():
     session.clear()
     return redirect(url_for("weekly.index"))
+
+
+@weekly_bp.route("/playlists/<playlist_id>")
+@is_logged_in
+def playlist(ctx, playlist_id: str):
+    token = session[current_app.config["COOKIE_NAME"]]
+    client = SpotifyClient(token)
+    # playlist = list(client.playlist_tracks(playlist_id)["items"][0]["track"].keys())
+    playlist = list(client.playlist_tracks(playlist_id)["items"][0]["track"].keys())
+    return jsonify(playlist)
