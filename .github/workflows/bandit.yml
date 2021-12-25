@@ -25,16 +25,17 @@ jobs:
     - name: Set up python
       uses: actions/setup-python@v1
       with:
-        python-version: 3.8
+        python-version: 3.9
     
     - name: Poetry Install
-      uses: knowsuchagency/poetry-install@v2
-      env:
-        POETRY_VIRTUALENVS_CREATE: false
+      uses: snok/install-poetry@v1
   
     - name: Get started poetry
       run: |
         poetry install
+
+    - name: Test results
+      run: poetry show
     
     - name: Run bandit
       run: make bandit
