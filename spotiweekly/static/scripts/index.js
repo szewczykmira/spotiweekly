@@ -9,8 +9,7 @@ class Intro extends React.Component {
     return <div className="uk-margin-top uk-text-center">
       <h1 className="uk-text-success ">Spotiweekly</h1>
       <p>
-        Are you tired of creating new playlists from your discovery weekly? First create new playlists and after that passing songs one by one? Say no more!
-        Spotiweekly is here to help you!
+        Download spotify playlists and convert them into the xml readable by Apple Muisc
       </p>
     </div>
   }
@@ -18,6 +17,7 @@ class Intro extends React.Component {
 
 class Playlist extends React.Component {
   render() {
+    console.log(this.props.obj.id);
     return <tr>
       <td><img className="uk-preserve-width uk-border-circle" src={this.props.imageUrl} width="40" alt="" /></td>
       <td className="uk-table-link"><a className="uk-link-reset" href="">{this.props.name}</a></td>
@@ -58,7 +58,7 @@ class Playlists extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {this.state.playlists.map((plist, index) => < Playlist key={plist.id} name={plist.name} imageUrl={plist.images[0].url} />)}
+          {this.state.playlists.map((plist, index) => < Playlist obj={plist} key={plist.id} name={plist.name} imageUrl={plist.images[0].url} />)}
         </tbody>
       </table>
       <ul className="uk-pagination">
